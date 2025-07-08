@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="2000.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projectassignement.TourismController">
+
+   <!-- Top Navigation Bar -->
+   <top>
+      <HBox prefWidth="1481.0" spacing="20" style="-fx-padding: 15; -fx-background-color: #ffffff;">
+         <Label prefHeight="51.0" prefWidth="156.0" text="NepTourism">
+            <font>
+               <Font name="Adelle Sans Devanagari Bold" size="26.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="34.0" />
+            </HBox.margin>
+         </Label>
+         <Label prefHeight="49.0" prefWidth="201.0" text="Welcome sahel (nepali)">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <Region fx:id="spacer" prefWidth="672.0" HBox.hgrow="ALWAYS" />
+         <Button prefHeight="38.0" prefWidth="72.0" text="नेपाली">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <HBox.margin>
+               <Insets top="6.0" />
+            </HBox.margin>
+         </Button>
+         <Button prefHeight="38.0" prefWidth="72.0" text="Logout">
+            <HBox.margin>
+               <Insets right="53.0" top="6.0" />
+            </HBox.margin>
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Button>
+      </HBox>
+   </top>
+
+   <!-- CENTER: Main Content Area -->
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;">
+         <VBox prefHeight="919.0" prefWidth="1618.0" spacing="20" style="-fx-padding: 20;">
+
+            <!-- Tab Buttons -->
+            <HBox alignment="CENTER" prefHeight="82.0" prefWidth="1308.0" spacing="20" style="-fx-background-color: #ededed; -fx-border-radius: 10; -fx-background-radius: 10;">
+
+               <ToggleButton fx:id="exploreTab" prefHeight="39.0" prefWidth="252.0"
+                             styleClass="active-tab" text="Explore" textAlignment="CENTER" textFill="#000000">
+                  <HBox.margin>
+                     <Insets bottom="15.0" right="50.0" top="15.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font name="System Bold" size="16.0" />
+                  </font>
+               </ToggleButton>
+
+               <ToggleButton fx:id="myBookingsTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="My Bookings" textFill="#868686">
+                  <HBox.margin>
+                     <Insets bottom="15.0" right="50.0" top="15.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font name="System Bold" size="16.0" />
+                  </font>
+               </ToggleButton>
+
+               <ToggleButton fx:id="profileTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="Profile" textFill="#868686">
+                  <HBox.margin>
+                     <Insets bottom="15.0" right="50.0" top="15.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font name="System Bold" size="16.0" />
+                  </font>
+               </ToggleButton>
+
+               <ToggleButton fx:id="emergencyTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="Emergency" textFill="#868686">
+                  <HBox.margin>
+                     <Insets bottom="15.0" top="15.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font name="System Bold" size="16.0" />
+                  </font>
+               </ToggleButton>
+
+               <VBox.margin>
+                  <Insets left="40.0" right="50.0" />
+               </VBox.margin>
+            </HBox>
+
+            <!-- Dynamic Content Area -->
+            <VBox fx:id="contentArea" prefHeight="919.0" prefWidth="1618.0" spacing="20" style="-fx-padding: 20;">
+
+               <!-- Explore Screen (Default) -->
+               <VBox fx:id="exploreScreen" managed="true" visible="true">
+                  <!-- Search Section -->
+                  <VBox prefHeight="179.0" prefWidth="1308.0" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <Label prefHeight="41.0" prefWidth="483.0" text="Discover Nepal's Amazing Destinations">
+                        <font>
+                           <Font name="System Bold" size="26.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets left="33.0" top="11.0" />
+                        </VBox.margin>
+                     </Label>
+                     <Label prefHeight="37.0" prefWidth="305.0" text="Find and book your perfect adventure" textFill="#797979">
+                        <font>
+                           <Font name="System Italic" size="16.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets left="33.0" />
+                        </VBox.margin>
+                     </Label>
+                     <HBox spacing="10">
+                        <TextField prefHeight="48.0" prefWidth="1170.0" promptText="Search attractions…" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets bottom="25.0" left="33.0" right="34.0" top="8.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextField>
+                        <ComboBox prefHeight="48.0" prefWidth="264.0" promptText="All Types" style="-fx-font-size: 16; -fx-background-color: white; -fx-border-color: #ededed;">
+                           <HBox.margin>
+                              <Insets bottom="25.0" right="25.0" top="8.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </HBox>
+                     <VBox.margin>
+                        <Insets left="40.0" right="50.0" />
+                     </VBox.margin>
+                  </VBox>
+
+                  <!-- Destination Cards -->
+                  <TilePane fx:id="destinationCards" hgap="20" prefColumns="3" style="-fx-background-color: transparent;" vgap="20">
+                     <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                     </padding>
+
+                     <!-- Card 1 -->
+                     <VBox prefHeight="570.0" prefWidth="376.0" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;">
+                        <ImageView fitHeight="150.0" fitWidth="382.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label text="Kathmandu Durbar Square">
+                           <font>
+                              <Font name="Adelle Sans Devanagari Extrabold" size="22.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="📍 Kathmandu" textFill="#6b6b6b">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="⏱️ 2–3 hours" textFill="#6b6b6b">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="🏔️ 1400m altitude" textFill="#6b6b6b">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Historic palace complex showcasing traditional Nepalese architecture." textFill="#6b6b6b" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-font-weight: bold;" text="'$ 1,010'">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button style="-fx-background-color: #392424;" text="Book Now" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Button>
+                     </VBox>
+
+                     <!-- Card 2 -->
+                     <VBox prefWidth="438.0" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;">
+                        <ImageView fitHeight="150.0" fitWidth="403.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label text="Chitwan National Park">
+                           <font>
+                              <Font name="Adelle Sans Devanagari Extrabold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label text="📍 Chitwan" textFill="#6b6b6b">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="⏱️ 2–3 hours" textFill="#6b6b6b">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="🏔️ 150m altitude" textFill="#6b6b6b">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="UNESCO World Heritage site famous for rhinos, tigers, and elephants." textFill="#6b6b6b" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-font-weight: bold;" text="'$ 1,600'">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button style="-fx-background-color: #392424;" text="Book Now" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Button>
+                     </VBox>
+
+                     <!-- Card 3 -->
+                     <VBox prefHeight="570.0" prefWidth="396.0" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;">
+                        <ImageView fitHeight="150.0" fitWidth="401.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label text="Pokhara Paragliding">
+                           <font>
+                              <Font name="Adelle Sans Devanagari Extrabold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label text="📍 Pokhara" textFill="#6b6b6b">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="⏱️ 2–3 hours" textFill="#6b6b6b">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="🏔️ 1600m altitude" textFill="#6b6b6b">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Tandem paragliding with stunning views of the Himalayas." textFill="#6b6b6b" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-font-weight: bold;" text="'$ 1,260'">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button style="-fx-background-color: #392424;" text="Book Now" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Button>
+                     </VBox>
+                  </TilePane>
+               </VBox>
+
+               <!-- My Bookings Screen -->
+               <VBox fx:id="myBookingsScreen" managed="false" visible="false">
+               <VBox spacing="20">
+                  <padding>
+                     <Insets bottom="20" left="20" right="20" top="20" />
+                  </padding>
+               <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+                  <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="My Bookings" />
+                  <Label style="-fx-font-size: 16px; -fx-text-fill: #797979;" text="Track your adventure bookings" />
+
+               </VBox>
+
+                  <VBox fx:id="bookingList"  prefWidth="1104.0" spacing="10"
+                        style="-fx-background-color: #fefefe; -fx-border-color: #dddddd; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 20;">
+                     <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Kathmandu Durbar Square" />
+                     <Label style="-fx-font-size: 14px; -fx-text-fill: #4b4b4b;" text="Guide: Available Guide" />
+                     <Label style="-fx-font-size: 14px; -fx-text-fill: #4b4b4b;" text="Dates: 2025-07-13 to 2025-07-20" />
+                     <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="'$1010'" />
+
+                     <HBox spacing="10">
+                        <Label style="-fx-background-color: #ffeeaa; -fx-padding: 4 10 4 10; -fx-border-radius: 5; -fx-background-radius: 5; -fx-font-size: 12px;" text="pending" />
+                        <Label style="-fx-font-size: 13px; -fx-border-color: #ccc; -fx-border-radius: 15; -fx-padding: 4 12 4 12; -fx-background-radius: 15;" text="Awaiting Confirmation" />
+                     </HBox>
+
+                  </VBox>
+               </VBox>
+               </VBox>
+               <!-- Profile Screen -->
+               <VBox fx:id="profileScreen" managed="false" prefHeight="700" prefWidth="1200" spacing="20" style="-fx-padding: 20;" visible="false">
+
+                  <!-- Main Content -->
+                  <HBox alignment="TOP_CENTER" spacing="20">
+                     <!-- Left Panel -->
+                     <VBox prefWidth="500" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-border-color: #e0e0e0;">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Personal Information" />
+                        <Label style="-fx-text-fill: #999;" text="Your account details" />
+                        <Label style="-fx-font-weight: bold;" text="Name" />
+                        <Label text="sahel" />
+                        <Label style="-fx-font-weight: bold;" text="Email" />
+                        <Label text="sahel1121212123@gmail.com" />
+                        <Label style="-fx-font-weight: bold;" text="Nationality" />
+                        <Label text="nepali" />
+                        <Label style="-fx-font-weight: bold;" text="Total Bookings" />
+                        <Label text="1" />
+                     </VBox>
+
+                     <!-- Right Panel -->
+                     <VBox prefWidth="500" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-border-color: #e0e0e0;">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Emergency Contact" />
+                        <Label style="-fx-text-fill: #999;" text="Important for your safety during treks" />
+                        <Label style="-fx-font-weight: bold;" text="Emergency Contact Number" />
+                        <TextField promptText="Enter emergency contact number" />
+                        <Button style="-fx-background-color: black; -fx-text-fill: white; -fx-font-weight: bold;" text="Update Emergency Contact" />
+                     </VBox>
+                  </HBox>
+               </VBox>
+
+               <!-- Emergency Screen -->
+               <VBox fx:id="emergencyScreen" managed="false" visible="false" prefHeight="700" prefWidth="1200" spacing="20" style="-fx-padding: 20;">
+
+                  <!-- Emergency Alert -->
+                  <HBox style="-fx-background-color: #ffe5e5; -fx-padding: 15; -fx-background-radius: 10; -fx-border-color: #ffcccc; -fx-border-radius: 10;">
+                     <Label style="-fx-text-fill: #d32f2f; -fx-font-weight: bold;" text="⚠ For immediate emergencies, call:\nNepal Police: 100 | Tourist Police: +977-1-4247041" wrapText="true" />
+                  </HBox>
+
+                  <!-- Main Content -->
+                  <HBox alignment="TOP_CENTER" spacing="20">
+                     <!-- Left Column: Emergency Contacts -->
+                     <VBox prefHeight="299.0" prefWidth="668.0" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-border-color: #e0e0e0;">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Emergency Contacts" />
+                        <Label style="-fx-text-fill: #999;" text="Important numbers for your safety" />
+
+                        <!-- Contacts -->
+                        <VBox spacing="10">
+                           <VBox spacing="5" style="-fx-background-color: #fafafa; -fx-padding: 10; -fx-background-radius: 5;">
+                              <Label style="-fx-font-weight: bold;" text="Nepal Police" />
+                              <Label text="Emergency: 100" />
+                           </VBox>
+
+                           <VBox spacing="5" style="-fx-background-color: #fafafa; -fx-padding: 10; -fx-background-radius: 5;">
+                              <Label style="-fx-font-weight: bold;" text="Tourist Police" />
+                              <Label text="+977-1-4247041" />
+                           </VBox>
+
+                           <VBox spacing="5" style="-fx-background-color: #fafafa; -fx-padding: 10; -fx-background-radius: 5;">
+                              <Label style="-fx-font-weight: bold;" text="Himalayan Rescue Association" />
+                              <Label text="+977-1-4440292" />
+                           </VBox>
+                        </VBox>
+                     </VBox>
+
+                     <!-- Right Column: Safety Tips -->
+                     <VBox prefHeight="299.0" prefWidth="643.0" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-border-color: #e0e0e0;">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Safety Tips" />
+                        <Label style="-fx-text-fill: #999;" text="Stay safe during your adventures" />
+
+                        <!-- Tips -->
+                        <VBox spacing="10">
+                           <VBox spacing="5" style="-fx-background-color: #e8f0ff; -fx-padding: 10; -fx-background-radius: 5;">
+                              <Label style="-fx-text-fill: #1a73e8; -fx-font-weight: bold;" text="High Altitude" />
+                              <Label text="Acclimatize properly above 3,000m" />
+                           </VBox>
+
+                           <VBox spacing="5" style="-fx-background-color: #e6f4ea; -fx-padding: 10; -fx-background-radius: 5;">
+                              <Label style="-fx-text-fill: #188038; -fx-font-weight: bold;" text="Weather" />
+                              <Label text="Check weather conditions before trekking" />
+                           </VBox>
+
+                           <VBox spacing="5" style="-fx-background-color: #fef7e0; -fx-padding: 10; -fx-background-radius: 5;">
+                              <Label style="-fx-text-fill: #d93025; -fx-font-weight: bold;" text="Communication" />
+                              <Label text="Keep emergency contacts updated" />
+                           </VBox>
+                        </VBox>
+                     </VBox>
+                  </HBox>
+               </VBox>
+
+
+            </VBox>
+         </VBox>
+      </ScrollPane>
+   </center>
+</BorderPane>
