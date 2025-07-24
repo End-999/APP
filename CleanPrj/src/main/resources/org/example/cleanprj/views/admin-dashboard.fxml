@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" prefHeight="1733.0" prefWidth="1300" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cleanprj.controllers.AdminController">
+
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox prefHeight="71.0" prefWidth="1440.0" spacing="20" style="-fx-padding: 15; -fx-background-color: #ffffff;">
+            <VBox prefHeight="200.0" prefWidth="100.0">
+                <children>
+                    <ImageView fitHeight="70.0" fitWidth="105.0" pickOnBounds="true">
+                        <image>
+                            <Image url="@../images/logoo.png" />
+                        </image>
+                        <VBox.margin>
+                            <Insets left="50.0" />
+                        </VBox.margin>
+                    </ImageView>
+                </children>
+            </VBox>
+            <Label prefHeight="70.0" prefWidth="305.0" text="Admin Panel - Welcome System Administrator">
+                <font>
+                    <Font size="15.0" />
+                </font>
+            <HBox.margin>
+               <Insets left="-20.0" />
+            </HBox.margin>
+            </Label>
+            <Region fx:id="spacerr" prefHeight="70.0" prefWidth="494.0" HBox.hgrow="ALWAYS" />
+            <Button alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="103.0" text="नेपाली">
+                <font>
+                    <Font size="16.0" />
+                </font>
+                <HBox.margin>
+                    <Insets top="16.0" />
+                </HBox.margin>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="109.0" text="Logout">
+                <HBox.margin>
+                    <Insets right="53.0" top="16.0" />
+                </HBox.margin>
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+        </HBox>
+    </top>
+
+    <!-- Center Content -->
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;">
+        <VBox prefHeight="1536.0" prefWidth="1300.0" spacing="25.0" style="-fx-background-color: #f5fafc;">
+
+            <!-- Navigation Tabs -->
+        <VBox prefHeight="79.0" prefWidth="1300.0" spacing="20.0" style="-fx-padding: 20; -fx-alignment: center;">
+            <!-- Tab Buttons -->
+            <HBox alignment="CENTER" prefHeight="82.0" prefWidth="1308.0" spacing="20" style="-fx-background-color: #ededed; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <ToggleButton fx:id="analyticsTab" prefHeight="39.0" prefWidth="252.0" styleClass="active-tab" text="Analytics" textAlignment="CENTER" textFill="#000000">
+                    <HBox.margin>
+                        <Insets bottom="15.0" top="15.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </ToggleButton>
+                <ToggleButton fx:id="touristTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="Tourists" textFill="#868686">
+                    <HBox.margin>
+                        <Insets bottom="15.0" top="15.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </ToggleButton>
+                <ToggleButton fx:id="guideTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="Guides" textFill="#868686">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </ToggleButton>
+                <ToggleButton fx:id="attractionTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="Attractions" textFill="#868686">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </ToggleButton>
+                <ToggleButton fx:id="bookingTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="Bookings" textFill="#868686">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </ToggleButton>
+                <ToggleButton fx:id="emergencyTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="Emergency" textFill="#868686">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </ToggleButton>
+                <VBox.margin>
+                    <Insets left="40.0" right="50.0" />
+                </VBox.margin>
+               <padding>
+                  <Insets left="18.0" right="17.0" />
+               </padding>
+            </HBox>
+        </VBox>
+
+            <StackPane fx:id="mainContentArea" prefHeight="900.0" prefWidth="1300.0">
+                <!-- === Analytics Section === -->
+                <VBox fx:id="analyticsPane" visible="false">
+                    <!-- Summary Cards -->
+                    <HBox prefWidth="1300.0" spacing="15" style="-fx-alignment: center;">
+                        <VBox prefHeight="115.0" prefWidth="285.0" spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-border-radius: 30; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2); -fx-background-radius: 10;">
+                            <Label text="Total Tourists" />
+                            <Label style="-fx-font-size: 26px; -fx-font-weight: bold;" text="1,234" />
+                            <Label style="-fx-text-fill: green;" text="+12% from last month" />
+                        </VBox>
+                        <VBox prefWidth="282.0" spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                            <Label text="Active Guides" />
+                            <Label style="-fx-font-size: 26px; -fx-font-weight: bold;" text="89" />
+                            <Label style="-fx-text-fill: green;" text="+3 new this week" />
+                        </VBox>
+                        <VBox prefWidth="282.0" spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                            <Label text="Total Bookings" />
+                            <Label style="-fx-font-size: 26px; -fx-font-weight: bold;" text="567" />
+                            <Label style="-fx-text-fill: green;" text="+8% from last month" />
+                        </VBox>
+                        <VBox prefWidth="278.0" spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                            <Label text="Popular Attractions" />
+                            <Label style="-fx-font-size: 26px; -fx-font-weight: bold;" text="23" />
+                            <Label style="-fx-text-fill: gray;" text="Everest Base Camp leads" />
+                        </VBox>
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
+                    </HBox>
+
+                    <!-- Activity and Alerts -->
+                    <HBox spacing="20" style="-fx-alignment: center;">
+
+                        <!-- Recent Activity -->
+                        <VBox prefHeight="255.0" prefWidth="621.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-border-radius: 10;">
+                            <Label prefHeight="36.0" prefWidth="288.0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-font-size: 26;" text="Recent Activity">
+                          <font>
+                             <Font name="System Bold" size="13.0" />
+                          </font></Label>
+                            <Label prefHeight="29.0" prefWidth="370.0" style="-fx-text-fill: gray;" text="Latest updates and activities">
+                          <VBox.margin>
+                             <Insets bottom="12.0" top="-10.0" />
+                          </VBox.margin>
+                          <font>
+                             <Font size="15.0" />
+                          </font></Label>
+                       <VBox prefHeight="112.0" prefWidth="506.0" spacing="8">
+                          <children>
+                             <VBox prefHeight="24.0" prefWidth="506.0">
+                                <children>
+                                   <Label prefHeight="17.0" prefWidth="284.0" text="New booking for Annapurna Circuit">
+                                      <graphic>
+                                         <ImageView fitHeight="11.0" fitWidth="9.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                               <Image url="@../images/blue-dot.png" />
+                                            </image>
+                                         </ImageView>
+                                      </graphic>
+                                   </Label>
+                                </children>
+                             </VBox>
+                             <VBox layoutX="10.0" layoutY="10.0" prefHeight="24.0" prefWidth="506.0">
+                                <children>
+                                   <Label prefHeight="17.0" prefWidth="284.0" text="Guide certification updated">
+                                      <graphic>
+                                         <ImageView fitHeight="11.0" fitWidth="9.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                               <Image url="@../images/green-dot.png" />
+                                            </image>
+                                         </ImageView>
+                                      </graphic>
+                                   </Label>
+                                </children>
+                             </VBox>
+                             <VBox layoutX="10.0" layoutY="105.0" prefHeight="24.0" prefWidth="506.0">
+                                <children>
+                                   <Label prefHeight="17.0" prefWidth="284.0" text="Safety alert issued for high altitude">
+                                      <graphic>
+                                         <ImageView fitHeight="11.0" fitWidth="9.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                               <Image url="@../images/orange-dot.png" />
+                                            </image>
+                                         </ImageView>
+                                      </graphic>
+                                   </Label>
+                                </children>
+                             </VBox>
+                          </children>
+                       </VBox>
+                        </VBox>
+
+                        <!-- Safety Alerts -->
+                        <VBox prefHeight="255.0" prefWidth="535.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-border-radius: 10;">
+                            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Safety Alerts" />
+                            <Label style="-fx-text-fill: gray;" text="Current safety notifications" />
+                            <VBox spacing="8">
+                                <Label prefHeight="69.0" prefWidth="564.0" style="-fx-background-color: #fff3cd; -fx-padding: 10; -fx-border-radius: 5;" text="⚠️ Monsoon Season Alert&#10;High-altitude treks restricted during June-August" textFill="#aba069">
+                             <font>
+                                <Font name="System Bold" size="13.0" />
+                             </font></Label>
+                                <Label prefHeight="65.0" prefWidth="564.0" style="-fx-background-color: #fef2f2; -fx-padding: 10; -fx-border-radius: 5;" text="🚨 Altitude Sickness Warning&#10;Extra precautions needed above 3,000m" textFill="#c63d3dc9">
+                             <font>
+                                <Font name="System Bold" size="13.0" />
+                             </font></Label>
+                            </VBox>
+                        </VBox>
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
+
+                    </HBox>
+
+                    <HBox prefWidth="1300.0" spacing="15" style="-fx-alignment: center;">
+                        <VBox prefHeight="115.0" prefWidth="285.0" spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-border-radius: 30; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2); -fx-background-radius: 10;">
+                            <Label prefHeight="17.0" prefWidth="185.0" text="Total Tourists (By countries)" />
+                            <Label style="-fx-font-size: 26px; -fx-font-weight: bold;" text="3" />
+                            <Label style="-fx-text-fill: green;" text="From 3 countries" />
+                        </VBox>
+                        <VBox prefWidth="282.0" spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                            <Label prefHeight="17.0" prefWidth="145.0" text="Total Revenue " />
+                            <Label style="-fx-font-size: 26px; -fx-font-weight: bold;" text="\$12,999 " />
+                            <Label style="-fx-text-fill: green;" text="Average: $165,333/month" />
+                        </VBox>
+                        <VBox prefWidth="282.0" spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                            <Label text="Total Bookings" />
+                            <Label style="-fx-font-size: 26px; -fx-font-weight: bold;" text="2032" />
+                            <Label style="-fx-text-fill: green;" text="+12% from last year" />
+                        </VBox>
+                        <VBox prefWidth="278.0" spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                            <Label text="Top Attraction " />
+                            <Label style="-fx-font-size: 26px; -fx-font-weight: bold;" text="23" />
+                            <Label style="-fx-text-fill: gray;" text="Everest Base Camp leads" />
+                        </VBox>
+                     <VBox.margin>
+                        <Insets bottom="35.0" />
+                     </VBox.margin>
+                    </HBox>
+                    <VBox alignment="CENTER" prefWidth="800" spacing="20" style="-fx-background-color: white;">
+
+                        <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="1175.0" spacing="10">
+                       <VBox prefHeight="79.0" prefWidth="753.0">
+                          <children>
+                                 <Label prefHeight="23.0" prefWidth="412.0" style="-fx-font-size: 26; -fx-font-weight: bold;" text="Tourists by Nationality">
+                                <VBox.margin>
+                                   <Insets top="16.0" />
+                                </VBox.margin>
+                                <font>
+                                   <Font size="18.0" />
+                                </font>
+                             </Label>
+                                 <Label text="Distribution of tourists by their nationality">
+                                <VBox.margin>
+                                   <Insets top="5.0" />
+                                </VBox.margin>
+                                <font>
+                                   <Font size="16.0" />
+                                </font>
+                             </Label>
+                          </children>
+                          <padding>
+                             <Insets left="16.0" />
+                          </padding>
+                       </VBox>
+                            <ComboBox fx:id="yearComboBox" prefHeight="36.0" prefWidth="106.0" promptText="2024" />
+                            <ComboBox fx:id="filterComboBox" prefHeight="36.0" prefWidth="174.0" promptText="Tourists by Nationality" />
+                            <Button prefHeight="36.0" prefWidth="120.0" text="Export Report">
+                          <HBox.margin>
+                             <Insets right="12.0" />
+                          </HBox.margin></Button>
+                        </HBox>
+
+                        <PieChart fx:id="touristPieChart" prefHeight="642.0" prefWidth="1284.0" />
+                    <VBox.margin>
+                       <Insets left="64.0" right="61.0" />
+                    </VBox.margin>
+                    </VBox>
+                </VBox>
+
+                <!-- === Tourists Section === -->
+                <VBox fx:id="touristPane" prefWidth="1000" spacing="20" visible="true">
+                  <HBox prefHeight="55.0" prefWidth="1298.0">
+                     <children>
+                        <Label prefHeight="29.0" prefWidth="297.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Tourists Management" />
+                        <Region prefHeight="55.0" prefWidth="676.0" />
+                        <Button graphicTextGap="5" prefHeight="35.0" prefWidth="116.0" text="Export Data">
+                           <HBox.margin>
+                              <Insets right="24.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button prefHeight="32.0" prefWidth="148.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Add New Tourist" />
+                     </children>
+                     <padding>
+                        <Insets left="56.0" />
+                     </padding>
+                  </HBox>
+                  <VBox prefHeight="38.0" prefWidth="1298.0">
+                     <padding>
+                        <Insets left="56.0" right="58.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="1.0" top="-38.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label style="-fx-text-fill: #666;" text="Manage tourist registrations and information" />
+                     </children>
+                  </VBox>
+
+                    <!-- Search and Controls Row -->
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <TextField prefHeight="47.0" prefWidth="791.0" promptText="Search tourists..." HBox.hgrow="ALWAYS" />
+                        <ComboBox prefHeight="44.0" prefWidth="150" promptText="All Nationalities" />
+                     <padding>
+                        <Insets left="56.0" right="58.0" />
+                     </padding>
+                    </HBox>
+
+                    <!-- Table Section -->
+                    <TableView prefHeight="400" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn prefWidth="167.67889022827148" text="Name" />
+                            <TableColumn prefWidth="115.35739135742188" text="Nationality" />
+                            <TableColumn prefWidth="176.14260864257812" text="Contact" />
+                            <TableColumn prefWidth="176.42828369140625" text="Emergency Contact" />
+                            <TableColumn prefWidth="212.57171630859375" text="Registration Date" />
+                            <TableColumn prefWidth="138.60675048828125" text="Status" />
+                            <TableColumn prefWidth="198.74859619140625" text="Actions" />
+                        </columns>
+                     <VBox.margin>
+                        <Insets left="57.0" right="57.0" />
+                     </VBox.margin>
+                    </TableView>
+                  <VBox layoutX="68.0" layoutY="85.0" spacing="5" />
+                </VBox>
+
+                <!-- === Guides Section === -->
+                <VBox fx:id="guidePane" visible="false">
+                    <Label style="-fx-font-size: 24;" text="👥 Guides Dashboard - Content Placeholder" />
+                </VBox>
+
+                <!-- === Attractions Section === -->
+                <VBox fx:id="attractionPane" visible="false">
+                    <Label style="-fx-font-size: 24;" text="🌄 Attractions Dashboard - Content Placeholder" />
+                </VBox>
+
+                <!-- === Bookings Section === -->
+                <VBox fx:id="bookingPane" visible="false">
+                    <Label style="-fx-font-size: 24;" text="📅 Bookings Dashboard - Content Placeholder" />
+                </VBox>
+
+                <!-- === Emergency Section === -->
+                <VBox fx:id="emergencyPane" visible="false">
+                    <Label style="-fx-font-size: 24;" text="🚨 Emergency Dashboard - Content Placeholder" />
+                </VBox>
+            </StackPane>
+        </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>
