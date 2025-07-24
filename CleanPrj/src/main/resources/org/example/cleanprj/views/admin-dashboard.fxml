@@ -309,11 +309,11 @@
                 </VBox>
 
                 <!-- === Tourists Section === -->
-                <VBox fx:id="touristPane" prefWidth="1000" spacing="20" visible="true">
+                <VBox fx:id="touristPane" prefHeight="1027.0" prefWidth="1298.0" spacing="20" visible="false">
                   <HBox prefHeight="55.0" prefWidth="1298.0">
                      <children>
                         <Label prefHeight="29.0" prefWidth="297.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Tourists Management" />
-                        <Region prefHeight="55.0" prefWidth="676.0" />
+                        <Region prefHeight="55.0" prefWidth="748.0" />
                         <Button graphicTextGap="5" prefHeight="35.0" prefWidth="116.0" text="Export Data">
                            <HBox.margin>
                               <Insets right="24.0" />
@@ -347,7 +347,7 @@
                     </HBox>
 
                     <!-- Table Section -->
-                    <TableView prefHeight="400" VBox.vgrow="ALWAYS">
+                    <TableView prefHeight="519.0" prefWidth="1184.0" style="-fx-max-height: 500;" VBox.vgrow="ALWAYS">
                         <columns>
                             <TableColumn prefWidth="167.67889022827148" text="Name" />
                             <TableColumn prefWidth="115.35739135742188" text="Nationality" />
@@ -365,24 +365,231 @@
                 </VBox>
 
                 <!-- === Guides Section === -->
-                <VBox fx:id="guidePane" visible="false">
-                    <Label style="-fx-font-size: 24;" text="👥 Guides Dashboard - Content Placeholder" />
+                <VBox fx:id="guidePane" prefHeight="1027.0" prefWidth="1298.0" spacing="20" visible="false">
+                    <HBox prefHeight="55.0" prefWidth="1298.0">
+                        <children>
+                            <Label prefHeight="29.0" prefWidth="297.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Guide Management" />
+                            <Region prefHeight="55.0" prefWidth="748.0" />
+                            <Button graphicTextGap="5" prefHeight="35.0" prefWidth="116.0" text="Export Data">
+                                <HBox.margin>
+                                    <Insets right="24.0" />
+                                </HBox.margin>
+                            </Button>
+                            <Button prefHeight="32.0" prefWidth="148.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Add New Guide" />
+                        </children>
+                        <padding>
+                            <Insets left="56.0" />
+                        </padding>
+                    </HBox>
+                    <VBox prefHeight="38.0" prefWidth="1298.0">
+                        <padding>
+                            <Insets left="56.0" right="58.0" />
+                        </padding>
+                        <VBox.margin>
+                            <Insets left="1.0" top="-38.0" />
+                        </VBox.margin>
+                        <children>
+                            <Label style="-fx-text-fill: #666;" text="Manage guide certifications and information" />
+                        </children>
+                    </VBox>
+
+                    <!-- Search and Controls Row -->
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <TextField prefHeight="47.0" prefWidth="791.0" promptText="Search tourists..." HBox.hgrow="ALWAYS" />
+                        <ComboBox prefHeight="44.0" prefWidth="150" promptText="All Nationalities" />
+                        <padding>
+                            <Insets left="56.0" right="58.0" />
+                        </padding>
+                    </HBox>
+
+                    <!-- Table Section -->
+                    <TableView prefHeight="519.0" prefWidth="1184.0" style="-fx-max-height: 500;" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn prefWidth="167.67889022827148" text="Name" />
+                            <TableColumn prefWidth="132.07106018066406" text="Language" />
+                            <TableColumn prefWidth="159.928955078125" text="Experience" />
+                            <TableColumn prefWidth="176.42828369140625" text="Specialization" />
+                            <TableColumn prefWidth="100.6851806640625" text="Rating" />
+                            <TableColumn prefWidth="225.8148193359375" text="Contact" />
+                            <TableColumn maxWidth="156.4193115234375" prefWidth="89.7393798828125" text="Status" />
+                        <TableColumn maxWidth="197.5" prefWidth="129.260498046875" text="Action" />
+                        </columns>
+                        <VBox.margin>
+                            <Insets left="57.0" right="57.0" />
+                        </VBox.margin>
+                    </TableView>
+                    <VBox layoutX="68.0" layoutY="85.0" spacing="5" />
                 </VBox>
 
                 <!-- === Attractions Section === -->
-                <VBox fx:id="attractionPane" visible="false">
-                    <Label style="-fx-font-size: 24;" text="🌄 Attractions Dashboard - Content Placeholder" />
+                <VBox fx:id="attractionPane" prefHeight="1027.0" prefWidth="1298.0" spacing="20" visible="false">
+                    <HBox prefHeight="55.0" prefWidth="1298.0">
+                        <children>
+                            <Label prefHeight="29.0" prefWidth="315.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Attractions Management" />
+                            <Region prefHeight="55.0" prefWidth="706.0" />
+                            <Button graphicTextGap="5" prefHeight="35.0" prefWidth="116.0" text="Export Data">
+                                <HBox.margin>
+                                    <Insets right="24.0" />
+                                </HBox.margin>
+                            </Button>
+                            <Button prefHeight="32.0" prefWidth="148.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Add New Attraction" />
+                        </children>
+                        <padding>
+                            <Insets left="56.0" />
+                        </padding>
+                    </HBox>
+                    <VBox prefHeight="38.0" prefWidth="1298.0">
+                        <padding>
+                            <Insets left="56.0" right="58.0" />
+                        </padding>
+                        <VBox.margin>
+                            <Insets left="1.0" top="-38.0" />
+                        </VBox.margin>
+                        <children>
+                            <Label style="-fx-text-fill: #666;" text="Manage tourist attractions and destinations" />
+                        </children>
+                    </VBox>
+
+                    <!-- Search and Controls Row -->
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <TextField prefHeight="47.0" prefWidth="791.0" promptText="Search tourists..." HBox.hgrow="ALWAYS" />
+                        <ComboBox prefHeight="44.0" prefWidth="107.0" promptText="All Types" />
+                     <ComboBox layoutX="1100.0" layoutY="12.0" prefHeight="44.0" prefWidth="150" promptText="All Difficulties" />
+                        <padding>
+                            <Insets left="56.0" right="58.0" />
+                        </padding>
+                    </HBox>
+
+                    <!-- Table Section -->
+                    <TableView prefHeight="519.0" prefWidth="1184.0" style="-fx-max-height: 500;" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn prefWidth="167.67889022827148" text="Name" />
+                            <TableColumn prefWidth="158.62416076660156" text="Types" />
+                            <TableColumn prefWidth="155.87576293945312" text="Location" />
+                            <TableColumn prefWidth="154.72979736328125" text="Difficulty" />
+                            <TableColumn prefWidth="100.6851806640625" text="Altitude" />
+                            <TableColumn prefWidth="194.070556640625" text="Duration" />
+                            <TableColumn maxWidth="156.4193115234375" prefWidth="94.42449951171875" text="Status" />
+                            <TableColumn maxWidth="197.5" prefWidth="157.07568359375" text="Actions" />
+                        </columns>
+                        <VBox.margin>
+                            <Insets left="57.0" right="57.0" />
+                        </VBox.margin>
+                    </TableView>
+                    <VBox layoutX="68.0" layoutY="85.0" spacing="5" />
                 </VBox>
+
 
                 <!-- === Bookings Section === -->
-                <VBox fx:id="bookingPane" visible="false">
-                    <Label style="-fx-font-size: 24;" text="📅 Bookings Dashboard - Content Placeholder" />
+                <VBox fx:id="bookingPane" prefHeight="1027.0" prefWidth="1298.0" spacing="20" visible="false">
+                    <HBox prefHeight="55.0" prefWidth="1298.0">
+                        <children>
+                            <Label prefHeight="29.0" prefWidth="315.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Bookings Management" />
+                            <Region prefHeight="55.0" prefWidth="706.0" />
+                            <Button graphicTextGap="5" prefHeight="35.0" prefWidth="116.0" text="Export Data">
+                                <HBox.margin>
+                                    <Insets right="24.0" />
+                                </HBox.margin>
+                            </Button>
+                            <Button prefHeight="32.0" prefWidth="148.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Add New Booking" />
+                        </children>
+                        <padding>
+                            <Insets left="56.0" />
+                        </padding>
+                    </HBox>
+                    <VBox prefHeight="38.0" prefWidth="1298.0">
+                        <padding>
+                            <Insets left="56.0" right="58.0" />
+                        </padding>
+                        <VBox.margin>
+                            <Insets left="1.0" top="-38.0" />
+                        </VBox.margin>
+                        <children>
+                            <Label style="-fx-text-fill: #666;" text="Manage tourist bookings and reservations" />
+                        </children>
+                    </VBox>
+
+                    <!-- Search and Controls Row -->
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <TextField prefHeight="47.0" prefWidth="791.0" promptText="Search bookings..." HBox.hgrow="ALWAYS" />
+                        <ComboBox layoutX="1100.0" layoutY="12.0" prefHeight="44.0" prefWidth="150" promptText="All Statuses" />
+                        <padding>
+                            <Insets left="56.0" right="58.0" />
+                        </padding>
+                    </HBox>
+
+                    <!-- Table Section -->
+                    <TableView prefHeight="519.0" prefWidth="1184.0" style="-fx-max-height: 500;" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn prefWidth="212.1884994506836" text="Tourist" />
+                            <TableColumn prefWidth="201.74038696289062" text="Attraction" />
+                            <TableColumn prefWidth="175.87973022460938" text="Dates" />
+                            <TableColumn prefWidth="159.0955810546875" text="Cost" />
+                            <TableColumn minWidth="6.07666015625" prefWidth="121.37432861328125" text="Status" />
+                            <TableColumn prefWidth="149.81964111328125" text="Assign" />
+                            <TableColumn maxWidth="197.5" prefWidth="161.5" text="Actions" />
+                        </columns>
+                        <VBox.margin>
+                            <Insets left="57.0" right="57.0" />
+                        </VBox.margin>
+                    </TableView>
+                    <VBox layoutX="68.0" layoutY="85.0" spacing="5" />
                 </VBox>
 
+
                 <!-- === Emergency Section === -->
-                <VBox fx:id="emergencyPane" visible="false">
-                    <Label style="-fx-font-size: 24;" text="🚨 Emergency Dashboard - Content Placeholder" />
+                <VBox fx:id="emergencyPane" prefHeight="1027.0" prefWidth="1298.0" spacing="20" visible="true">
+                    <HBox prefHeight="55.0" prefWidth="1298.0">
+                        <children>
+                            <Label prefHeight="29.0" prefWidth="315.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Emergency Contacts" />
+                            <Region prefHeight="55.0" prefWidth="706.0" />
+                            <Button graphicTextGap="5" prefHeight="35.0" prefWidth="116.0" text="Export Data">
+                                <HBox.margin>
+                                    <Insets right="24.0" />
+                                </HBox.margin>
+                            </Button>
+                            <Button prefHeight="32.0" prefWidth="148.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Add Contact" />
+                        </children>
+                        <padding>
+                            <Insets left="56.0" />
+                        </padding>
+                    </HBox>
+                    <VBox prefHeight="38.0" prefWidth="1298.0">
+                        <padding>
+                            <Insets left="56.0" right="58.0" />
+                        </padding>
+                        <VBox.margin>
+                            <Insets bottom="-22.0" left="1.0" top="-38.0" />
+                        </VBox.margin>
+                        <children>
+                            <Label style="-fx-text-fill: #666;" text="Manage emergency contact information" />
+                        </children>
+                    </VBox>
+
+                    <!-- Search and Controls Row -->
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <padding>
+                            <Insets left="56.0" right="58.0" />
+                        </padding>
+                    </HBox>
+
+                    <!-- Table Section -->
+                    <TableView prefHeight="519.0" prefWidth="1184.0" style="-fx-max-height: 500;" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn prefWidth="266.1377983093262" text="Name" />
+                            <TableColumn prefWidth="217.36219787597656" text="Organizations" />
+                            <TableColumn prefWidth="200.5928955078125" text="Phone" />
+                            <TableColumn prefWidth="129.124267578125" text="Type" />
+                            <TableColumn prefWidth="253.69207763671875" text="Location" />
+                            <TableColumn prefWidth="117.89990234375" text="24/7" />
+                        </columns>
+                        <VBox.margin>
+                            <Insets left="57.0" right="57.0" />
+                        </VBox.margin>
+                    </TableView>
+                    <VBox layoutX="68.0" layoutY="85.0" spacing="5" />
                 </VBox>
+
             </StackPane>
         </VBox>
         </ScrollPane>
