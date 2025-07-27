@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import java.lang.String?>
+
+<BorderPane fx:id="mainPane" prefHeight="1733.0" prefWidth="1300" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cleanprj.controllers.AdminController">
+
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox prefHeight="71.0" prefWidth="1440.0" spacing="20" style="-fx-padding: 15; -fx-background-color: #ffffff;">
+            <VBox prefHeight="200.0" prefWidth="100.0">
+                <children>
+                    <ImageView fitHeight="70.0" fitWidth="105.0" pickOnBounds="true">
+                        <image>
+                            <Image url="@../images/logoo.png" />
+                        </image>
+                        <VBox.margin>
+                            <Insets left="50.0" />
+                        </VBox.margin>
+                    </ImageView>
+                </children>
+            </VBox>
+            <Label prefHeight="70.0" prefWidth="305.0" text="Admin Panel - Welcome System Administrator">
+                <font>
+                    <Font size="15.0" />
+                </font>
+                <HBox.margin>
+                    <Insets left="-20.0" />
+                </HBox.margin>
+            </Label>
+            <Region fx:id="spacerr" prefHeight="70.0" prefWidth="494.0" HBox.hgrow="ALWAYS" />
+            <Button alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="103.0" text="नेपाली">
+                <font>
+                    <Font size="16.0" />
+                </font>
+                <HBox.margin>
+                    <Insets top="16.0" />
+                </HBox.margin>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="109.0" text="Logout" onAction="#logout">
+                <HBox.margin>
+                    <Insets right="53.0" top="16.0" />
+                </HBox.margin>
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+        </HBox>
+    </top>
+
+    <!-- Center Content with Main Scrolling -->
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;" vbarPolicy="AS_NEEDED" hbarPolicy="NEVER">
+            <VBox prefHeight="3500.0" prefWidth="1300.0" spacing="25.0" style="-fx-background-color: #f5fafc;">
+
+                <!-- Navigation Tabs -->
+                <VBox prefHeight="79.0" prefWidth="1300.0" spacing="20.0" style="-fx-padding: 20; -fx-alignment: center;">
+                    <!-- Tab Buttons -->
+                    <HBox alignment="CENTER" prefHeight="82.0" prefWidth="1308.0" spacing="20" style="-fx-background-color: #ededed; -fx-border-radius: 10; -fx-background-radius: 10;">
+                        <ToggleButton fx:id="analyticsTab" prefHeight="39.0" prefWidth="252.0" styleClass="active-tab" text="Analytics" textAlignment="CENTER" textFill="#000000">
+                            <HBox.margin>
+                                <Insets bottom="15.0" top="15.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </ToggleButton>
+                        <ToggleButton fx:id="touristTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="Tourists" textFill="#868686">
+                            <HBox.margin>
+                                <Insets bottom="15.0" top="15.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </ToggleButton>
+                        <ToggleButton fx:id="guideTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="Guides" textFill="#868686">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </ToggleButton>
+                        <ToggleButton fx:id="attractionTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="Attractions" textFill="#868686">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </ToggleButton>
+                        <ToggleButton fx:id="bookingTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="Bookings" textFill="#868686">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </ToggleButton>
+                        <ToggleButton fx:id="emergencyTab" prefHeight="39.0" prefWidth="252.0" styleClass="inactive-tab" text="Emergency" textFill="#868686">
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </ToggleButton>
+                        <VBox.margin>
+                            <Insets left="40.0" right="50.0" />
+                        </VBox.margin>
+                        <padding>
+                            <Insets left="18.0" right="17.0" />
+                        </padding>
+                    </HBox>
+                </VBox>
+
+                <StackPane fx:id="mainContentArea" prefHeight="2900.0" prefWidth="1300.0">
+                    <!-- === Analytics Section === -->
+                    <VBox fx:id="analyticsPane" visible="true" spacing="50">
+
+                        <!-- Analytics Header with Refresh Button -->
+                        <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-padding: 0 20 0 20;">
+                            <Label text="Analytics Dashboard" style="-fx-font-size: 28px; -fx-font-weight: bold;" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button fx:id="refreshAnalyticsButton" text="🔄 Refresh Data" onAction="#refreshAnalytics"
+                                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                            <Label fx:id="lastUpdatedLabel" text="Last updated: Loading..." style="-fx-text-fill: #666; -fx-font-size: 12px;" />
+                        </HBox>
+
+                        <!-- Summary Cards -->
+                        <HBox prefWidth="1300.0" spacing="15" style="-fx-alignment: center;">
+                            <!-- Total Tourists Card -->
+                            <VBox prefHeight="115.0" prefWidth="285.0" spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-border-radius: 30; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2); -fx-background-radius: 10;">
+                                <Label text="Total Tourists" style="-fx-font-size: 14px; -fx-text-fill: #666;" />
+                                <Label fx:id="totalTouristsLabel" text="Loading..." style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #2196F3;" />
+                                <Label fx:id="touristGrowthLabel" text="Loading..." style="-fx-text-fill: green; -fx-font-size: 12px;" />
+                            </VBox>
+
+                            <!-- Active Guides Card -->
+                            <VBox prefWidth="282.0" spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                                <Label text="Active Guides" style="-fx-font-size: 14px; -fx-text-fill: #666;" />
+                                <Label fx:id="activeGuidesLabel" text="Loading..." style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #FF9800;" />
+                                <Label fx:id="guideStatusLabel" text="Loading..." style="-fx-text-fill: green; -fx-font-size: 12px;" />
+                            </VBox>
+
+                            <!-- Total Bookings Card -->
+                            <VBox prefWidth="282.0" spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                                <Label text="Total Bookings" style="-fx-font-size: 14px; -fx-text-fill: #666;" />
+                                <Label fx:id="totalBookingsLabel" text="Loading..." style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" />
+                                <Label fx:id="bookingStatusLabel" text="Loading..." style="-fx-text-fill: green; -fx-font-size: 12px;" />
+                            </VBox>
+
+                            <!-- Revenue Card -->
+                            <VBox prefWidth="278.0" spacing="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                                <Label text="Total Revenue" style="-fx-font-size: 14px; -fx-text-fill: #666;" />
+                                <Label fx:id="totalRevenueLabel" text="Loading..." style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #9C27B0;" />
+                                <Label fx:id="revenueStatusLabel" text="Loading..." style="-fx-text-fill: green; -fx-font-size: 12px;" />
+                            </VBox>
+                        </HBox>
+
+                        <!-- Charts Section - Much Larger Charts -->
+                        <VBox spacing="60" style="-fx-alignment: center; -fx-padding: 20;">
+
+                            <!-- Pie Chart Section - Full Width -->
+                            <VBox alignment="CENTER" prefWidth="1200" spacing="30" style="-fx-background-color: white; -fx-padding: 40; -fx-background-radius: 15; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.15), 8, 0, 0, 3);">
+                                <HBox alignment="CENTER_LEFT" prefWidth="1120" spacing="20">
+                                    <VBox spacing="10">
+                                        <Label text="Tourist Distribution" style="-fx-font-size: 26px; -fx-font-weight: bold;" />
+                                        <Label text="Breakdown by nationality and categories" style="-fx-text-fill: #666; -fx-font-size: 18px;" />
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <ComboBox fx:id="chartTypeComboBox" prefWidth="220" promptText="Chart Type" onAction="#changeChartType" style="-fx-font-size: 16px;">
+                                        <items>
+                                            <FXCollections fx:factory="observableArrayList">
+                                                <String fx:value="Tourists by Nationality"/>
+                                                <String fx:value="Bookings by Status"/>
+                                                <String fx:value="Attractions by Type"/>
+                                            </FXCollections>
+                                        </items>
+                                    </ComboBox>
+                                    <Button text="📊 Export" onAction="#exportCurrentChart"
+                                            style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 12 20;" />
+                                </HBox>
+                                <!-- Much Larger Pie Chart -->
+                                <PieChart fx:id="mainPieChart"
+                                          prefHeight="600.0" prefWidth="600.0"
+                                          minHeight="600.0" minWidth="600.0"
+                                          maxHeight="600.0" maxWidth="600.0" />
+                            </VBox>
+
+                            <!-- Bar Chart Section - Full Width -->
+                            <VBox alignment="CENTER" prefWidth="1200" spacing="30" style="-fx-background-color: white; -fx-padding: 40; -fx-background-radius: 15; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.15), 8, 0, 0, 3);">
+                                <HBox alignment="CENTER_LEFT" prefWidth="1120" spacing="20">
+                                    <VBox spacing="10">
+                                        <Label text="Popular Attractions" style="-fx-font-size: 26px; -fx-font-weight: bold;" />
+                                        <Label text="Most booked destinations and trends" style="-fx-text-fill: #666; -fx-font-size: 18px;" />
+                                    </VBox>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <ComboBox fx:id="barChartTypeComboBox" prefWidth="220" promptText="View Type" onAction="#changeBarChartType" style="-fx-font-size: 16px;">
+                                        <items>
+                                            <FXCollections fx:factory="observableArrayList">
+                                                <String fx:value="Top Attractions"/>
+                                                <String fx:value="Monthly Bookings"/>
+                                                <String fx:value="Guide Performance"/>
+                                            </FXCollections>
+                                        </items>
+                                    </ComboBox>
+                                    <Button text="📈 Export" onAction="#exportBarChart"
+                                            style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 12 20;" />
+                                </HBox>
+                                <!-- Much Larger Bar Chart -->
+                                <BarChart fx:id="popularAttractionsChart"
+                                          prefHeight="600.0" prefWidth="1000.0"
+                                          minHeight="600.0" minWidth="1000.0"
+                                          maxHeight="600.0" maxWidth="1000.0">
+                                    <xAxis>
+                                        <CategoryAxis fx:id="barChartXAxis" label="Categories" />
+                                    </xAxis>
+                                    <yAxis>
+                                        <NumberAxis fx:id="barChartYAxis" label="Values" />
+                                    </yAxis>
+                                </BarChart>
+                            </VBox>
+                        </VBox>
+
+                    </VBox>
+
+                    <!-- === Tourists Section === -->
+                    <VBox fx:id="touristPane" prefHeight="1027.0" prefWidth="1298.0" spacing="20" visible="false">
+                        <HBox prefHeight="55.0" prefWidth="1298.0">
+                            <children>
+                                <Label prefHeight="29.0" prefWidth="297.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Tourists Management" />
+                                <Region prefHeight="55.0" prefWidth="900.0" />
+                                <Button graphicTextGap="5" prefHeight="35.0" prefWidth="116.0" text="Export Data" onAction="#exportTouristData">
+                                    <HBox.margin>
+                                        <Insets right="24.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets left="56.0" />
+                            </padding>
+                        </HBox>
+                        <VBox prefHeight="38.0" prefWidth="1298.0">
+                            <padding>
+                                <Insets left="56.0" right="58.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="1.0" top="-38.0" />
+                            </VBox.margin>
+                            <children>
+                                <Label style="-fx-text-fill: #666;" text="Manage tourist registrations and information. Tourists register themselves through the main application." />
+                            </children>
+                        </VBox>
+
+                        <!-- Search and Controls Row -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <TextField fx:id="touristSearchField" prefHeight="47.0" prefWidth="791.0" promptText="Search tourists..." HBox.hgrow="ALWAYS" />
+                            <ComboBox fx:id="touristNationalityFilter" prefHeight="44.0" prefWidth="150" promptText="All Nationalities" />
+                            <padding>
+                                <Insets left="56.0" right="58.0" />
+                            </padding>
+                        </HBox>
+
+                        <!-- Table Section -->
+                        <TableView fx:id="touristTable" prefHeight="519.0" prefWidth="1184.0" style="-fx-max-height: 500;" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="touristNameColumn" prefWidth="140.0" text="Name" />
+                                <TableColumn fx:id="touristNationalityColumn" prefWidth="100.0" text="Nationality" />
+                                <TableColumn fx:id="touristContactColumn" prefWidth="160.0" text="Contact" />
+                                <TableColumn fx:id="touristEmergencyColumn" prefWidth="150.0" text="Emergency Contact" />
+                                <TableColumn fx:id="touristRegDateColumn" prefWidth="180.0" text="Registration Date" />
+                                <TableColumn fx:id="touristStatusColumn" prefWidth="100.0" text="Status" />
+                                <TableColumn fx:id="touristActionColumn" prefWidth="120.0" text="Action" />
+                            </columns>
+                            <VBox.margin>
+                                <Insets left="57.0" right="57.0" />
+                            </VBox.margin>
+                        </TableView>
+
+                        <!-- Warning Information -->
+                        <VBox spacing="5" style="-fx-background-color: #fff3cd; -fx-padding: 15; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-color: #ffeaa7; -fx-border-width: 1;">
+                            <Label text="⚠️ Important:" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #856404;" />
+                            <Label text="• Removing a tourist will permanently delete their account and all associated data" style="-fx-text-fill: #856404;" />
+                            <Label text="• This action cannot be undone. Please use with caution" style="-fx-text-fill: #856404;" />
+                            <Label text="• All bookings associated with the tourist will also be affected" style="-fx-text-fill: #856404;" />
+                            <VBox.margin>
+                                <Insets left="57.0" right="57.0" />
+                            </VBox.margin>
+                        </VBox>
+                    </VBox>
+
+                    <!-- === Guides Section === -->
+                    <VBox fx:id="guidePane" prefHeight="1027.0" prefWidth="1298.0" spacing="20" visible="false">
+                        <HBox prefHeight="55.0" prefWidth="1298.0">
+                            <children>
+                                <Label prefHeight="29.0" prefWidth="297.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Guide Management" />
+                                <Region prefHeight="55.0" prefWidth="748.0" />
+                                <Button graphicTextGap="5" prefHeight="35.0" prefWidth="116.0" text="Export Data" onAction="#exportGuideData">
+                                    <HBox.margin>
+                                        <Insets right="24.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button prefHeight="32.0" prefWidth="148.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Add New Guide" onAction="#openAddGuideForm" />
+                            </children>
+                            <padding>
+                                <Insets left="56.0" />
+                            </padding>
+                        </HBox>
+                        <VBox prefHeight="38.0" prefWidth="1298.0">
+                            <padding>
+                                <Insets left="56.0" right="58.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="1.0" top="-38.0" />
+                            </VBox.margin>
+                            <children>
+                                <Label style="-fx-text-fill: #666;" text="Manage guide certifications and information" />
+                            </children>
+                        </VBox>
+
+                        <!-- Search and Controls Row -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <TextField fx:id="guideSearchField" prefHeight="47.0" prefWidth="791.0" promptText="Search guides..." HBox.hgrow="ALWAYS" />
+                            <ComboBox fx:id="guideSpecializationFilter" prefHeight="44.0" prefWidth="150" promptText="All Specializations" />
+                            <padding>
+                                <Insets left="56.0" right="58.0" />
+                            </padding>
+                        </HBox>
+
+                        <!-- Table Section -->
+                        <TableView fx:id="guideTable" prefHeight="519.0" prefWidth="1184.0" style="-fx-max-height: 500;" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="guideNameColumn" prefWidth="140.0" text="Name" />
+                                <TableColumn fx:id="guideLanguageColumn" prefWidth="110.0" text="Language" />
+                                <TableColumn fx:id="guideExperienceColumn" prefWidth="90.0" text="Experience" />
+                                <TableColumn fx:id="guideSpecializationColumn" prefWidth="150.0" text="Specialization" />
+                                <TableColumn fx:id="guideRatingColumn" prefWidth="70.0" text="Rating" />
+                                <TableColumn fx:id="guideContactColumn" prefWidth="180.0" text="Contact" />
+                                <TableColumn fx:id="guideStatusColumn" prefWidth="80.0" text="Status" />
+                                <TableColumn fx:id="guideActionColumn" prefWidth="160.0" text="Actions" />
+                            </columns>
+                            <VBox.margin>
+                                <Insets left="57.0" right="57.0" />
+                            </VBox.margin>
+                        </TableView>
+
+                        <!-- Warning Information -->
+                        <VBox spacing="5" style="-fx-background-color: #fff3cd; -fx-padding: 15; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-color: #ffeaa7; -fx-border-width: 1;">
+                            <Label text="⚠️ Important:" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #856404;" />
+                            <Label text="• Removing a guide will permanently delete their profile and all associated data" style="-fx-text-fill: #856404;" />
+                            <Label text="• This action cannot be undone. Please use with caution" style="-fx-text-fill: #856404;" />
+                            <Label text="• All bookings assigned to this guide will be affected" style="-fx-text-fill: #856404;" />
+                            <Label text="• Use Update to modify guide information instead of removing and re-adding" style="-fx-text-fill: #856404;" />
+                            <VBox.margin>
+                                <Insets left="57.0" right="57.0" />
+                            </VBox.margin>
+                        </VBox>
+                    </VBox>
+
+                    <!-- === Attractions Section === -->
+                    <VBox fx:id="attractionPane" prefHeight="1027.0" prefWidth="1298.0" spacing="20" visible="false">
+                        <HBox prefHeight="55.0" prefWidth="1298.0">
+                            <children>
+                                <Label prefHeight="29.0" prefWidth="315.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Attractions Management" />
+                                <Region prefHeight="55.0" prefWidth="706.0" />
+                                <Button graphicTextGap="5" prefHeight="35.0" prefWidth="116.0" text="Export Data" onAction="#exportAttractionData">
+                                    <HBox.margin>
+                                        <Insets right="24.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button prefHeight="32.0" prefWidth="148.0"
+                                        style="-fx-background-color: black; -fx-text-fill: white;"
+                                        text="Add New Attraction" onAction="#openAddAttractionDialog" />
+                            </children>
+                            <padding>
+                                <Insets left="56.0" />
+                            </padding>
+                        </HBox>
+                        <VBox prefHeight="38.0" prefWidth="1298.0">
+                            <padding>
+                                <Insets left="56.0" right="58.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="1.0" top="-38.0" />
+                            </VBox.margin>
+                            <children>
+                                <Label style="-fx-text-fill: #666;" text="Manage tourist attractions and destinations" />
+                            </children>
+                        </VBox>
+
+                        <!-- Search and Controls Row -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <TextField fx:id="attractionSearchField" prefHeight="47.0" prefWidth="791.0" promptText="Search attractions..." HBox.hgrow="ALWAYS" />
+                            <ComboBox fx:id="attractionTypeFilter" prefHeight="44.0" prefWidth="107.0" promptText="All Types" />
+                            <ComboBox fx:id="attractionDifficultyFilter" layoutX="1100.0" layoutY="12.0" prefHeight="44.0" prefWidth="150" promptText="All Difficulties" />
+                            <padding>
+                                <Insets left="56.0" right="58.0" />
+                            </padding>
+                        </HBox>
+
+                        <!-- Table Section -->
+                        <TableView fx:id="attractionTable" prefHeight="519.0" prefWidth="1184.0" style="-fx-max-height: 500;" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="attractionNameColumn" prefWidth="150.0" text="Name" />
+                                <TableColumn fx:id="attractionTypeColumn" prefWidth="120.0" text="Types" />
+                                <TableColumn fx:id="attractionLocationColumn" prefWidth="130.0" text="Location" />
+                                <TableColumn fx:id="attractionDifficultyColumn" prefWidth="100.0" text="Difficulty" />
+                                <TableColumn fx:id="attractionAltitudeColumn" prefWidth="90.0" text="Altitude" />
+                                <TableColumn fx:id="attractionDurationColumn" prefWidth="120.0" text="Duration" />
+                                <TableColumn fx:id="attractionStatusColumn" prefWidth="90.0" text="Status" />
+                                <TableColumn fx:id="attractionActionColumn" prefWidth="180.0" text="Actions" />
+                            </columns>
+                            <VBox.margin>
+                                <Insets left="57.0" right="57.0" />
+                            </VBox.margin>
+                        </TableView>
+
+                        <!-- Warning Information -->
+                        <VBox spacing="5" style="-fx-background-color: #fff3cd; -fx-padding: 15; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-color: #ffeaa7; -fx-border-width: 1;">
+                            <Label text="⚠️ Important:" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #856404;" />
+                            <Label text="• Removing an attraction will permanently delete it from the system" style="-fx-text-fill: #856404;" />
+                            <Label text="• This action cannot be undone. Please use with caution" style="-fx-text-fill: #856404;" />
+                            <Label text="• All bookings associated with this attraction will be affected" style="-fx-text-fill: #856404;" />
+                            <Label text="• Use Update to modify attraction information instead of removing and re-adding" style="-fx-text-fill: #856404;" />
+                            <VBox.margin>
+                                <Insets left="57.0" right="57.0" />
+                            </VBox.margin>
+                        </VBox>
+                    </VBox>
+
+                    <!-- === Bookings Section === -->
+                    <VBox fx:id="bookingPane" prefHeight="1027.0" prefWidth="1298.0" spacing="20" visible="false">
+                        <HBox prefHeight="55.0" prefWidth="1298.0">
+                            <children>
+                                <Label prefHeight="29.0" prefWidth="315.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Bookings Management" />
+                                <Region prefHeight="55.0" prefWidth="706.0" />
+                                <Button graphicTextGap="5" prefHeight="35.0" prefWidth="116.0" text="Export Data" onAction="#exportBookingData">
+                                    <HBox.margin>
+                                        <Insets right="24.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button prefHeight="32.0" prefWidth="148.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Refresh Data" onAction="#loadBookingData" />
+                            </children>
+                            <padding>
+                                <Insets left="56.0" />
+                            </padding>
+                        </HBox>
+                        <VBox prefHeight="38.0" prefWidth="1298.0">
+                            <padding>
+                                <Insets left="56.0" right="58.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets left="1.0" top="-38.0" />
+                            </VBox.margin>
+                            <children>
+                                <Label style="-fx-text-fill: #666;" text="Manage tourist bookings and reservations. Right-click on any booking for management options." />
+                            </children>
+                        </VBox>
+
+                        <!-- Search and Controls Row -->
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <TextField prefHeight="47.0" prefWidth="600.0" promptText="Search bookings by tourist name or attraction..." HBox.hgrow="ALWAYS" />
+                            <ComboBox layoutX="1100.0" layoutY="12.0" prefHeight="44.0" prefWidth="150" promptText="All Statuses">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="All Statuses"/>
+                                        <String fx:value="Pending"/>
+                                        <String fx:value="Confirmed"/>
+                                        <String fx:value="Completed"/>
+                                        <String fx:value="Cancelled"/>
+                                    </FXCollections>
+                                </items>
+                            </ComboBox>
+                            <Button prefHeight="44.0" prefWidth="120.0" text="Filter" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+                            <padding>
+                                <Insets left="56.0" right="58.0" />
+                            </padding>
+                        </HBox>
+
+                        <!-- Table Section -->
+                        <TableView fx:id="bookingTable" prefHeight="519.0" prefWidth="1184.0" style="-fx-max-height: 500;" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="bookingTouristColumn" prefWidth="180.0" text="Tourist" />
+                                <TableColumn fx:id="bookingAttractionColumn" prefWidth="200.0" text="Attraction" />
+                                <TableColumn fx:id="bookingDatesColumn" prefWidth="160.0" text="Travel Dates" />
+                                <TableColumn fx:id="bookingCostColumn" prefWidth="100.0" text="Cost (USD)" />
+                                <TableColumn fx:id="bookingStatusColumn" prefWidth="120.0" text="Status" />
+                                <TableColumn fx:id="bookingGuideColumn" prefWidth="150.0" text="Assigned Guide" />
+                            </columns>
+                            <VBox.margin>
+                                <Insets left="57.0" right="57.0" />
+                            </VBox.margin>
+                            <placeholder>
+                                <Label text="No bookings found. Bookings will appear here once tourists make reservations." />
+                            </placeholder>
+                        </TableView>
+
+                        <!-- Instructions -->
+                        <VBox spacing="5" style="-fx-background-color: #e3f2fd; -fx-padding: 15; -fx-border-radius: 8; -fx-background-radius: 8;">
+                            <Label text="💡 Quick Actions:" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                            <Label text="• Right-click on any booking to assign guides, change status, or view details" />
+                            <Label text="• Double-click on a booking to view complete details" />
+                            <Label text="• Use the search box to find specific bookings" />
+                            <Label text="• Filter by status to see pending, confirmed, or completed bookings" />
+                            <VBox.margin>
+                                <Insets left="57.0" right="57.0" />
+                            </VBox.margin>
+                        </VBox>
+                    </VBox>
+
+                    <!-- === Emergency Section === -->
+                    <VBox fx:id="emergencyPane" prefHeight="1027.0" prefWidth="1298.0" spacing="20" visible="false">
+                        <HBox prefHeight="55.0" prefWidth="1298.0">
+                            <children>
+                                <Label prefHeight="29.0" prefWidth="315.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Emergency Contacts" />
+                                <Region prefHeight="55.0" prefWidth="706.0" />
+                                <Button graphicTextGap="5" prefWidth="116.0" text="Export Data" onAction="#exportEmergencyData">
+                                    <HBox.margin>
+                                        <Insets right="24.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button prefHeight="32.0" prefWidth="148.0"
+                                        style="-fx-background-color: black; -fx-text-fill: white;" text="Add Contact"
+                                        onAction="#openAddContact"/>
+                            </children>
+                            <padding>
+                                <Insets left="56.0" />
+                            </padding>
+                        </HBox>
+                        <VBox prefHeight="38.0" prefWidth="1298.0">
+                            <padding>
+                                <Insets left="56.0" right="58.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets bottom="-22.0" left="1.0" top="-38.0" />
+                            </VBox.margin>
+                            <children>
+                                <Label style="-fx-text-fill: #666;" text="Manage emergency contact information" />
+                            </children>
+                        </VBox>
+
+                        <!-- Table Section -->
+                        <TableView fx:id="emergencyTable" prefHeight="519.0" prefWidth="1184.0" style="-fx-max-height: 500;" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="emergencyNameColumn" prefWidth="266.1377983093262" text="Name" />
+                                <TableColumn fx:id="emergencyOrgColumn" prefWidth="217.36219787597656" text="Organizations" />
+                                <TableColumn fx:id="emergencyPhoneColumn" prefWidth="200.5928955078125" text="Phone" />
+                                <TableColumn fx:id="emergencyTypeColumn" prefWidth="129.124267578125" text="Type" />
+                                <TableColumn fx:id="emergencyLocationColumn" prefWidth="253.69207763671875" text="Location" />
+                                <TableColumn fx:id="emergency24_7Column" prefWidth="117.89990234375" text="24/7" />
+                            </columns>
+                            <VBox.margin>
+                                <Insets left="57.0" right="57.0" />
+                            </VBox.margin>
+                        </TableView>
+                    </VBox>
+
+                </StackPane>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
